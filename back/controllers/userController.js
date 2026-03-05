@@ -30,27 +30,43 @@ const getUsersByRole = (req, res) => {
 // create user
 const createUser = (req, res) => {
   const { name, email, role } = req.body;
+  const errors = {};
 
-  //si email existe déjà
-  const existingUser = USERS.find((u) => u.email === email);
-  if (existingUser) {
-    return res
-      .status(400)
-      .json({ error: "Un utilisateur avec cet email existe déjà" });
+  // Vérification des champs vides
+  if (!name) errors.name = "Le nom est requis";
+  if (!email) errors.email = "L'email est requis";
+  if (!role) errors.role = "Le rôle est requis";
+
+  
+  // email doit être unique
+  if (email) {
+    const existingUser = USERS.find((u) => u.email === email);
+    if (existingUser) {
+      errors.emailDuplicate = "Un utilisateur avec cet email existe déjà";
+    }
   }
 
-  if (!name || !email || !role) {
-    const error = { error: "Veuillez fournir tous les champs obligatoires" };
-    if (!name) error.name = "Le nom est requis";
-    if (!email) error.email = "L'email est requis";
-    if (!role) error.role = "Le rôle est requis";
-    return res.status(400).json(error);
+  // validation du role
+  if (role) {
+    const allowedRoles = ['user', 'admin'];
+    if (!allowedRoles.includes(role)) {
+      errors.roleInvalid = "Le rôle doit obligatoirement être 'user' ou 'admin'";
+    }
   }
+
+  // toutes les erreurs
+  if (Object.keys(errors).length > 0) {
+    return res.status(400).json({ 
+      message: "Veuillez corriger les erreurs suivantes", 
+      details: errors 
+    });
+  }
+
   try {
     const newUser = new User(USERS.length + 1, name, email, role);
 
     USERS.push(newUser);
-    res.status(201).send(newUser);
+    res.status(201).json(newUser);
   } catch (error) {
     return res.status(400).json({ error: error.message });
   }

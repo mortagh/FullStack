@@ -1,0 +1,44 @@
+# 🚀 Projet API Utilisateurs - Axel
+
+Une API RESTful simple et structurée, développée avec Node.js et Express. Ce projet permet de gérer des utilisateurs (CRUD complet) et suit une architecture claire séparant les Routes, les Contrôleurs et les Modèles.
+
+## 🛠️ Technologies utilisées
+* **Node.js**
+* **Express.js**
+* **React**
+
+## 📂 Architecture du projet
+
+```text
+├── index.js                 # Point d'entrée du serveur et middlewares (logs)
+├── data/
+│   └── users.js             # Base de données simulée (tableau en mémoire)
+├── models/
+│   └── userModel.js         # Classe User (structure de la donnée et validation)
+├── controllers/
+│   └── userController.js    # Logique métier (fonctions CRUD)
+└── routes/
+    └── users.js             # Définition des points de terminaison (endpoints)
+```
+
+## ⚙️ Installation et Lancement
+
+1. Assurez-vous d avoir Node.js installé sur votre machine.
+2. Clonez le projet ou ouvrez le dossier dans votre terminal.
+3. Installez les dépendances :
+   npm install
+4. Lancez le serveur :
+   node index.js
+Le serveur démarrera et sera accessible à l adresse : **http://localhost:3000**
+
+## 📡 Routes de l'API (Endpoints)
+
+Toutes les routes sont préfixées par `/api/users`.
+
+| Méthode | Route | Description |
+| **GET** | `/api/users` | Récupère la liste de tous les utilisateurs. |
+| **GET** | `/api/users/:id` | Récupère un utilisateur spécifique grâce à son ID. |
+| **GET** | `/api/users/role/:role` | Récupère tous les utilisateurs ayant un rôle précis (`user` ou `admin`). |
+| **POST** | `/api/users` | Crée un nouvel utilisateur. *Requiert : name, email, role.* |
+| **PUT** | `/api/users/:id` | Met à jour les informations d un utilisateur existant. |
+| **DELETE** | `/api/users/:id` | Supprime un utilisateur via son ID. |
