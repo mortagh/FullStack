@@ -1,0 +1,40 @@
+.appContainer {
+  min-height: 100vh;
+  background-color: var(--wow-app-bg);
+  background-image: var(--wow-main-bg-image);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.logo {
+  font-family: var(--wow-font-serif);
+  color: var(--wow-btn-text);
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  text-shadow: 2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 0 0 20px var(--wow-btn-bg);
+  margin: 0;
+}
+
+.subTitle {
+  color: var(--wow-bg-dark);
+  font-style: italic;
+  font-size: 1.2rem;
+  margin-top: -10px;
+}
+
+.footer {
+  margin-top: auto;
+  padding: 20px;
+  color: var(--wow-border-thin);
+  font-size: 0.9rem;
+  font-family: var(--wow-font-serif);
+}

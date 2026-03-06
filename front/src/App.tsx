@@ -1,12 +1,25 @@
 import MovieList from './components/MovieList';
-import UserList from './components/UserList';
+import UserList from './components/UserList/UserList';
+import './styles/variable.css';
+import styles from './App.module.css';
 
 function App() {
   return (
-    <div style={{ padding: '20px', fontFamily: 'sans-serif' }}>
-      <h1>Lol</h1>
-      <UserList />
+    <div className={styles.appContainer}>
+      <header className={styles.header}>
+        <h1 className={styles.logo}>Azeroth Manager</h1>
+        <p className={styles.subTitle}>Gestionnaire d'infanterie et de commandement</p>
+      </header>
+
+      <main>
+        <UserList />
+      </main>
+
+      <footer className={styles.footer}>
+        © 2026 - Forgefer & Co. - Tous droits réservés par le Conseil des Trois Marteaux
+      </footer>
       <MovieList />
+
     </div>
   );
 }

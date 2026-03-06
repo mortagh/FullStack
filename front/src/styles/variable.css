@@ -1,0 +1,32 @@
+:root {
+  /* 📜 Thème Parchemin */
+  --wow-bg-light: #f4e4bc;
+  --wow-bg-dark: #d8c292;
+  
+  /* 🖋️ Encre et Bordures */
+  --wow-text-main: #2b1d0f;
+  --wow-text-muted: #5b3f22;
+  --wow-border-thick: #3c2a15;
+  --wow-border-thin: #8b6b4a;
+  
+  /* ⚔️ Boutons et Actions */
+  --wow-btn-bg: #520f09;
+  --wow-btn-bg-hover: #72150d;
+  --wow-btn-text: #f8b700;
+  --wow-btn-border: #a67c00;
+  
+  /* 🚨 Alertes */
+  --wow-error: #d8000c;
+
+  /* ✒️ Typographie globale */
+  --wow-font-serif: "Georgia", "Times New Roman", serif;
+  --wow-font-sans: inherit;
+
+  /* Couleurs de fond de l'App */
+  --wow-app-bg: #0b0907;
+  --wow-accent-blue: #004a94;
+  
+  /* Image de fond */
+  --wow-main-bg-image: url('../assets/test2.jpg');
+
+}

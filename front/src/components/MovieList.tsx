@@ -23,7 +23,7 @@ export default function MovieList() {
   if (loading) return <p>Chargement des Films...</p>;
 
   return (
-    <div>
+    <div style={{color: "white"}}>
       <h2>Liste des Films</h2>
       <ul>
         {movies.map((movie) => (
