@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "dev": "ts-node-dev --respawn server.ts"
+    "dev": "ts-node-dev --respawn server.ts",
+    "seed": "ts-node data/seed.ts"
   },
   "dependencies": {
     "cors": "^2.8.6",
