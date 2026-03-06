@@ -1,4 +1,4 @@
-const MOVIES = [
+export const MOVIES = [
   {
     id: 1,
     title: "Inception",
@@ -24,4 +24,3 @@ const MOVIES = [
   },
 ];
 
-module.exports = MOVIES;

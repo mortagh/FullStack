@@ -1,16 +1,15 @@
-const express = require("express");
+import express from "express";
+import { MOVIES } from "../data/movies";
+// get all movies
 const router = express.Router();
 
-const MOVIES = require("../data/movies");
-
-// get all movies
 router.get("/", (req, res) => {
   res.send(MOVIES);
 });
 
 // get movie with id
 router.get("/:id", (req, res) => {
-  const movie = MOVIES.find((m) => m.id === parseInt(req.params.id));
+  const movie = MOVIES.find((m: any) => m.id === parseInt(req.params.id as string));
   if (!movie) {
     return res.status(404).send("Film non trouvé");
   }
@@ -23,7 +22,7 @@ router.post("/", (req, res) => {
 
   //si film existe déjà
   const existingMovie = MOVIES.find(
-    (m) => m.title === title && m.year === year,
+    (m: any) => m.title === title && m.year === year,
   );
   if (existingMovie) {
     return res
@@ -47,4 +46,4 @@ router.post("/", (req, res) => {
   res.status(201).send(movie);
 });
 
-module.exports = router;
+export default router;
