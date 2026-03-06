@@ -5,6 +5,7 @@ import userRoutes from './routes/users';
 import dotenv from 'dotenv';
 import { connectDB } from './config/db';
 import { errorHandler } from './middlewares/errorHandler';
+import { logHandler } from './middlewares/logHandler';
 
 
 dotenv.config();
@@ -17,18 +18,7 @@ app.use(cors());
 app.use(express.json());
 
 // Middleware de logging
-app.use((req, res, next) => {
-  const start = new Date();
-  const dateIso = start.toISOString();
-
-  res.on('finish', () => {
-    const duration = new Date().getTime() - start.getTime();
-    const statusMsg = res.statusMessage ? ` - ${res.statusMessage}` : '';
-    console.log(`[${dateIso}] ${req.method} ${req.originalUrl} - ${res.statusCode}${statusMsg} - time: ${duration}ms`);
-  });
-  next();
-});
-
+app.use(logHandler);
 
 app.use('/api/movies', movieRoutes);
 
